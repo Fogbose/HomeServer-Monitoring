@@ -1,0 +1,39 @@
+{
+  "version": 2,
+  "core": {
+    "project": "homeserver-nextcloud",
+    "file": "/srv/applications/nextcloud/docker-compose.yml",
+    "files": [
+      "/srv/applications/nextcloud/docker-compose.yml",
+      "/srv/applications/nextcloud/docker-compose.override.yml"
+    ],
+    "services": [
+      "app",
+      "cron",
+      "db",
+      "redis"
+    ],
+    "activity": "http"
+  },
+  "modules": [
+    {
+      "project": "homeserver-talk-hpb",
+      "file": "/srv/applications/nextcloud/talk/hpb/compose.json",
+      "services": [
+        "hpb",
+        "tls"
+      ],
+      "activity": "manual-no-calls"
+    },
+    {
+      "project": "homeserver-talk",
+      "file": "/srv/applications/nextcloud/talk/compose.json",
+      "services": [
+        "turn"
+      ],
+      "activity": "manual-no-calls"
+    }
+  ],
+  "hostname": "server.example.invalid",
+  "lock_file": "/run/lock/homeserver-maintenance.lock"
+}

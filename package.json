@@ -1,0 +1,8 @@
+{
+  "name": "homeserver-monitoring",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "scripts": {"test:ui": "node tools/ui_smoke.cjs"},
+  "devDependencies": {"playwright": "1.65.0"}
+}

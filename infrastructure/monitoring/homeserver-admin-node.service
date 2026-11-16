@@ -1,0 +1,34 @@
+[Unit]
+Description=Private HomeServer administration identity (userspace Tailscale)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+User=homeserver-admin-node
+Group=homeserver-admin-node
+StateDirectory=homeserver-admin-node
+StateDirectoryMode=0700
+RuntimeDirectory=homeserver-admin-node
+RuntimeDirectoryMode=0700
+ExecStart=/usr/sbin/tailscaled --tun=userspace-networking --state=/var/lib/homeserver-admin-node/tailscaled.state --socket=/run/homeserver-admin-node/tailscaled.sock --port=0
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=45
+UMask=0077
+NoNewPrivileges=yes
+CapabilityBoundingSet=
+AmbientCapabilities=
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictSUIDSGID=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_NETLINK
+LockPersonality=yes
+
+[Install]
+WantedBy=multi-user.target

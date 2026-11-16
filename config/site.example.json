@@ -1,0 +1,17 @@
+{
+  "hostname": "server.example.invalid",
+  "allow_actions": false,
+  "enable_cockpit_tunnel": false,
+  "ssh": {
+    "host": "server.example.invalid",
+    "user": "operator",
+    "host_key_alias": "server.example.invalid",
+    "identity_file": "private/monitoring/id_ed25519",
+    "known_hosts_file": "private/monitoring/known_hosts"
+  },
+  "lan_wake": {
+    "mac": "REPLACE_WITH_YOUR_SERVER_MAC",
+    "source": "192.168.50.10",
+    "network": "192.168.50.0/24"
+  }
+}
