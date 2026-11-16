@@ -26,4 +26,12 @@ local Markdown links and JavaScript syntax passed. The synthetic Edge smoke test
 passed on desktop, light theme and 390-pixel mobile width, including action
 rejection. The local Docker engine was stopped; the public SSO integration is
 therefore assigned to the disposable Linux workflow rather than being claimed
-as a fresh local run. Its resulting CI status must be checked after publication.
+as a fresh local run.
+
+Published source revision `9b7c7fc` passed the
+[Windows/Linux monitoring workflow](https://github.com/Fogbose/HomeServer-Monitoring/actions/runs/43889757970)
+and the [disposable Linux SSO workflow](https://github.com/Fogbose/HomeServer-Monitoring/actions/runs/43889842954)
+on 2026-11-16. The latter completed **67 checks**, including native Beszel/OliveTin
+OAuth and MFA, plus the real shortened-session inactivity-expiry test; its normal
+session policy was restored and lab containers stopped. These results apply to
+synthetic CI fixtures and do not change the production limitations above.
